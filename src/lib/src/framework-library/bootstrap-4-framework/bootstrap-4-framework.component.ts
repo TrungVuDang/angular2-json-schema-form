@@ -87,6 +87,7 @@ import {
     :host /deep/ .radio-inline + .checkbox-inline { margin-left: 0; margin-right: 10px; }
     :host /deep/ .checkbox-inline:last-child,
     :host /deep/ .radio-inline:last-child { margin-right: 0; }
+    :host /deep/ .ng-invalid.ng-touched { border: 1px solid #f44336; }
   `],
 })
 export class Bootstrap4FrameworkComponent implements OnInit, OnChanges {
@@ -286,6 +287,9 @@ export class Bootstrap4FrameworkComponent implements OnInit, OnChanges {
       case 'authfieldset':
         this.widgetOptions.expandable = true;
         this.widgetOptions.title = 'Authentication settings';
+        return null;
+      case 'fieldset':
+        this.widgetOptions.title = this.options.title;
         return null;
       default:
         this.widgetOptions.title = null;
